@@ -1,0 +1,21 @@
+<h1>Created Events</h1>
+
+<ul>
+  <% @events.each do |event| %>
+  <li>
+    <% if event.user_id == @user.id %>
+    <%= link_to event.name, event %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "New Event", new_event_path %>
+</div>
+<div>
+  <%= link_to "List of Events", events_path %>
+</div>
+<div>
+  <%= link_to "Home", root_path %>
+</div>
