@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :users
-  resources :events
-  
+  resources :events do
+    resources :event_attendings
+  end
+  resources :errors
+ 
 end

@@ -6,7 +6,24 @@
 
 <p><%= @event.description %></p>
 
+<h3>List of Attendees</h3>
+<ul>
+  <% @event.attendee_ids.each do |attendee_id| %>
+  <% @users.each do |user| %>
+  <% if user.id == attendee_id %>
+  <li>
+    <%= user.username %>
+  </li>
+  <% end %>
+  <% end %>
+  <% end %>
+</ul>
 
+<div>
+  <% if user_signed_in? %>
+  <%= link_to "Attend Event", event_event_attendings_path(@event) %>
+  <% end %>
+</div>
 <div>
   <%= link_to "Events", events_path %>
 </div>

@@ -1,3 +1,5 @@
+<h1>Hello <%= @user.username %>!</h1>
+
 <h1>Created Events</h1>
 
 <ul>
@@ -7,6 +9,19 @@
     <%= link_to event.name, event %>
     <% end %>
   </li>
+  <% end %>
+</ul>
+
+<h2>List of Attended Events</h2>
+<ul>
+  <% current_user.attended_event_ids.each do |attended_id| %>
+  <% @events.each do |event| %>
+  <% if event.id == attended_id %>
+  <li>
+    <%= link_to event.name, event %>
+  </li>
+  <% end %>
+  <% end %>
   <% end %>
 </ul>
 

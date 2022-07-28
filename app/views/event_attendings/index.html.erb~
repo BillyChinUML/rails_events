@@ -1,0 +1,25 @@
+<h1><%= @event.name %></h1>
+
+<h2>Date: <%= @event.date %></h2>
+
+<h2>Location: <%= @event.location %></h2>
+
+<p><%= @event.description %></p>
+
+<h3>List of Attendees</h3>
+<ul>
+  <% @users.each do |user| %>
+  <% if user.id == @event.attendee_ids %>
+  <li>
+    <%= user.username %>
+  </li>
+  <% end %>
+  <% end %>
+</ul>
+
+<div>
+  <% if user_signed_in? %>
+  <h4>Do you want to attend this event?</h4>
+  <%= button_to "Yes", action: "create" %><br>
+  <% end %>
+</div>

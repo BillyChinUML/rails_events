@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @users = User.all
     @event = Event.find(params[:id])
   end
 
